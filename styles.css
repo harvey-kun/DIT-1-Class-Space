@@ -1,0 +1,298 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-page {
+    height: auto;
+    justify-content: flex-start;
+    overflow: visible;
+    overflow-y: auto;
+    padding-top: 2rem;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: -1;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: auto;
+    z-index: 2;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    z-index: 1;
+}
+
+.button {
+    width: 300px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@supports (backdrop-filter: blur(20px)) {
+    .button {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 12px 40px rgba(0,0,0,0.4),
+        inset 0 2px 0 rgba(255,255,255,0.5),
+        inset 0 -2px 0 rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+    .button:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 4px 16px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 60px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .button {
+        width: 250px;
+        height: 70px;
+        font-size: 1.2rem;
+    }
+
+    .schedule-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 50px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .button {
+        width: 200px;
+        height: 60px;
+        font-size: 1rem;
+    }
+}
+
+.button-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.schedule-content {
+    max-width: 90%;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    color: #fff;
+    text-align: left;
+    z-index: 1;
+    position: relative;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.schedule-table th {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+}
+
+.schedule-table td {
+    font-size: 0.9rem;
+}
+
+.mobile-table {
+    display: block;
+}
+
+.desktop-table {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .mobile-table {
+        display: none;
+    }
+    .desktop-table {
+        display: block;
+    }
+    .schedule-content {
+        max-width: 800px;
+    }
+    .schedule-table td {
+        font-size: 1rem;
+    }
+    .schedule-table th:nth-child(2), .schedule-table td:nth-child(2) {
+        min-width: 150px;
+        white-space: nowrap;
+    }
+}
